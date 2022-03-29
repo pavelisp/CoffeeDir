@@ -1,34 +1,27 @@
 const express = require('express');
 const app = express();
-require('dotenv').config();
-const cors = require('cors');
+require('./config/database').connect();
 const morgan = require('morgan');
-const mongoose = require('mongoose');
+const auth = require('./middleware/auth');
 
+const userRoutes = require('./routes/users');
+
+
+// Environmental variables
+
+require('dotenv').config();
 const PORT = process.env.PORT || 8080;
 
 // Middleware
-
 app.use(morgan('tiny'));
 app.use(express.json());
-app.use(cors());
+app.use('/user', userRoutes);
 
-// Import & setup routes
+app.get('/potato', auth, (req, res)=> {
+    res.send('hi');
+})
 
-const coffeeRouter = require('./routes/coffees');
-const userRouter = require('./routes/users');
-
-app.use('/coffees', coffeeRouter);
-app.use('/users', userRouter);
-
-// Connect to MongoDB
-
-mongoose.connect(process.env.DB_CONNECTION,{useNewUrlParser: true}, ()=>{
-    console.log('Connected to MongoDB');
-});
-
-// Run server
 
 app.listen(PORT, () => {
-    console.log('Server running on port', PORT);
+    console.log('Server running on port 8080');
 });

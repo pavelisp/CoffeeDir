@@ -7,9 +7,10 @@ let userSchema = new Schema({
         type: String,
         required: true
     },
-    nickname: {
+    email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,
@@ -17,4 +18,4 @@ let userSchema = new Schema({
     }
 },);
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('user', userSchema);
