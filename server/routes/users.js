@@ -75,11 +75,8 @@ router.post('/login', async (req, res) => {
               {expiresIn: "24h"}
           );
 
-          // save user token
-          user.token = token;
-
           // respond with user
-          return res.status(200).json(user);
+          return res.status(200).json({user, token});
       }
       return res.status(400).send("Invalid credentials.")
 
