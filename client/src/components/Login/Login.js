@@ -10,7 +10,6 @@ class Login extends Component {
     success: false
   }
 
-
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -24,6 +23,7 @@ class Login extends Component {
       .then(res => {
         sessionStorage.setItem('token', res.data.token);
         this.setState({success: true})
+        this.props.setLogin();
       })
       .catch(err=>{
         this.setState({ error: err.response.data})

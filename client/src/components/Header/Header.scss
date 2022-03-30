@@ -1,0 +1,26 @@
+@use '../../styles/partials/mixins' as *;
+
+.Header {
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: 1rem;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-inline: 2rem;
+  }
+  @include desktop {
+    margin-inline: auto;
+    width: 1280px;
+  }
+  &__nav {
+    display: flex;
+  }
+  &__nav-link {
+    text-decoration: none;
+    margin-left: 1rem;
+  }
+}

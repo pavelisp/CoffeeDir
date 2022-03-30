@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const userRoutes = require('./routes/users');
 const currentUser = require('./routes/current');
+const coffeeRoutes = require('./routes/coffees');
 
 // Environmental variables
 
@@ -21,7 +22,7 @@ app.use(cors());
 // Routes
 app.use('/user', userRoutes);
 app.use('/current', currentUser);
-
+app.use('/coffee', coffeeRoutes);
 
 app.listen(PORT, () => {
     console.log('Server running on port 8080');

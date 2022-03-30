@@ -1,6 +1,6 @@
 
 const express = require('express');
-const Coffee = require('../models/Coffees');
+const Coffee = require('../models/coffee');
 
 
 const router = express.Router();
@@ -55,7 +55,7 @@ router.post('/:userId', (req, res) => {
     res.status(200).json(data);
   })
   .catch(err => {
-    res.status(400).json({error: err});
+    res.status(400).send({error: err});
   });
 });
 
