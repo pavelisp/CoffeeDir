@@ -3,8 +3,8 @@ import CoffeeList from "../components/CoffeeList/CoffeeList";
 const Home = (props) => {
   return ( 
     <main>
-    <CoffeeList coffees={props.coffees} />
-  </main>
+      <CoffeeList coffees={props.coffees} />
+    </main>
    );
 }
  

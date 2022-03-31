@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
 // GET one coffee
 
 router.get('/:id', (req, res) => {
+  console.log(req.params.id);
   Coffee.findById(req.params.id, (err, coffee) => {
     if (err) {
       res.status(500).send(err);
