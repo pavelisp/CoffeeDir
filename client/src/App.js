@@ -8,21 +8,43 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import { Component } from 'react';
 import AddCoffee from './pages/AddCoffee';
-import { Navigate } from 'react-router-dom';
 import Coffee from './pages/Coffee';
 import EditCoffee from './pages/EditCoffee';
+import Wrapper from './components/Wrapper/Wrapper';
 
 class App extends Component {
   state= {
     user: null,
     failedAuth: true,
-    loggedIn: false
+    loggedIn: false,
+    coffees: []
   }
 
 
   setLogin = () => {
     this.setState({loggedIn: true})
   }
+
+  handleAddCoffee = (e, navigate) => {
+    e.preventDefault();
+
+    axios.post(`http://localhost:8080/coffee/${this.state.user.id}`, {
+      name: e.target.name.value,
+      roaster: e.target.roaster.value,
+      origin: e.target.origin.value,
+      farm: e.target.farm.value,
+      description: e.target.description.value,
+      flavours: e.target.flavours.value,
+      price: e.target.price.value,
+      link: e.target.link.value,
+      score: e.target.score.value,
+    }).then(() => {
+      this.getCoffees();
+    }).catch((err) => {
+      this.setState({ error: err.response.data.error });
+    });
+    navigate('/');
+  };
 
   getCoffees = () => {
     axios
@@ -55,7 +77,7 @@ class App extends Component {
     })
   }
 
-  handleLogout = () => {
+  handleLogout = (navigate) => {
     // remove that token from sessionStorage
     sessionStorage.removeItem('token');
     // and then set the user to null and some sort of failedAuth message
@@ -63,9 +85,8 @@ class App extends Component {
       user: null,
       failedAuth: true,
       loggedIn: false,
-    }).then(()=>{
-      <Navigate to="/" />
     })
+    navigate('/');
   };
 
   componentDidMount(){
@@ -100,15 +121,20 @@ class App extends Component {
   render (){
     return (
       <Router>
+                  <Wrapper>
         <Header handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/> 
         <Routes>
-          <Route path="/" exact element={<Home coffees={this.state.coffees}/>} />
-          <Route path="/login" element={<Login setLogin={this.setLogin}/>} />
-          <Route path="/register" element={<Register />} />  
-          <Route path="/add-coffee" element={<AddCoffee userId={this.state.user && this.state.user.id}/>} />   
-          <Route path="/coffee/:id/edit" element={<EditCoffee getCoffees={this.getCoffees}/>} />
-          <Route path="/coffee/:id" element={<Coffee user={this.state.user} loggedIn={this.state.loggedIn}/>} />            
+
+            <Route path="/" exact element={<Home coffees={this.state.coffees}/>} />
+            <Route path="/login" element={<Login setLogin={this.setLogin}/>} />
+            <Route path="/register" element={<Register />} />  
+            <Route path="/add-coffee" element={<AddCoffee handleAddCoffee={this.handleAddCoffee} userId={this.state.user && this.state.user.id}/>} />   
+            <Route path="/coffee/:id/edit" element={<EditCoffee getCoffees={this.getCoffees}/>} />
+            <Route path="/coffee/:id" element={<Coffee user={this.state.user} loggedIn={this.state.loggedIn}/>} />            
+        
         </Routes>
+        <a href="https://www.freepik.com/vectors/coffee-branch">Coffee branch vector created by rattanachomphoo - www.freepik.com</a>
+        </Wrapper>
       </Router>
     );
   }

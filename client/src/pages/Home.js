@@ -1,8 +1,9 @@
 import CoffeeList from "../components/CoffeeList/CoffeeList";
+import './Home.scss';
 
 const Home = (props) => {
   return ( 
-    <main>
+    <main className="Main">
       <CoffeeList coffees={props.coffees} />
     </main>
    );

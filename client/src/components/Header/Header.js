@@ -1,29 +1,39 @@
-import { Link } from 'react-router-dom';
 import './Header.scss';
-
+import { useNavigate, Link } from 'react-router-dom';
+import Logo from '../../assets/logo.svg';
+import { useState, useEffect } from 'react';
 
 const Header = (props) => {
+
+  const [scroll, setScroll] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 50);
+    });
+  }, []);
+
+  const navigator = useNavigate();
 
   const { loggedIn, handleLogout } = props;
   return ( 
     <header className='Header'>
-      <Link to="/">
-        Logo
+      <Link className={scroll? `logo-rotate logo-link`: `logo-link`} to="/">
+        <img className={`Header__logo `} src={Logo} alt="Coffee Directory" />
       </Link>
       <nav>
-        <ul className='Header__nav'>
+        <div className='Header__nav'>
           {!loggedIn ? (
             <>
-              <li><Link className='Header__nav-link' to="/login">Login</Link></li>
-              <li><Link className='Header__nav-link' to="/register">Register</Link></li>
+              <Link className='Button Header__nav-link' to="/login">Login</Link>
+              <Link className='Button Button--secondary Header__nav-link' to="/register">Register</Link>
             </>
           ) : (
             <>
-              <li><Link className='Header__nav-link' to="/add-coffee">Add coffee</Link></li>
-              <li><span onClick={handleLogout} className='Header__nav-link'>Log Out</span></li>
+              <Link className='Button Header__nav-link' to="/add-coffee">Add coffee</Link>
+              <span onClick={()=>{handleLogout(navigator)}} className='Button Button--secondary Header__nav-link'>Log Out</span>
             </>
           )}
-        </ul>
+        </div>
       </nav>
     </header>
    );

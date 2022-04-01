@@ -1,0 +1,13 @@
+@use '../styles/partials/mixins' as *;
+
+.Main {
+  margin-inline: 1rem;
+  @include tablet {
+    margin-inline: 2rem;
+  }
+  @include desktop {
+    margin-inline: auto;
+    width: 1280px;
+  }
+
+}

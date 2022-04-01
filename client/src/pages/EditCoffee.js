@@ -29,7 +29,7 @@ const EditCoffee = (props) => {
         console.log(res)
         setCoffee(res.data);
         props.getCoffees();
-        navigate("/");  
+        navigate("/coffee/" + id);  
       })
       .catch((err) => {
         setError(err.response.data.error);
@@ -108,7 +108,7 @@ const EditCoffee = (props) => {
         label="Score"
         value={coffee.score}
       />
-      <button>ADD</button>
+      <button className="Button">CONFIRM</button>
     </form>
   );
 };

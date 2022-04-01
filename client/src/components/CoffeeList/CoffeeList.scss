@@ -1,0 +1,159 @@
+@use "../../styles/partials/mixins" as *;
+
+.CoffeeList {
+  &__header {
+    display: none;
+    @include tablet {
+      & span {
+        display: inline-block;
+      }
+      display: block;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      color: black;
+      margin-bottom: 0.8rem;
+      &-name {width: 30%;transform: translateX(3%)}
+      &-roaster {width: 20%}
+      &-origin {width: 15%}
+      &-score {width: 10%;text-align: center;}
+      &-price {width: 10%;text-align: center;}
+      &-link {width: 15%;text-align: right;transform: translateX(-5%)}
+    }
+  }
+  display: flex;
+  flex-direction: column;
+  &__item {
+    font-size: 15px;
+    animation: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s 1 slideInFromBottom;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+    color: black;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+    margin-bottom: 1rem;
+    &--name {
+      text-decoration: none;
+      color: rgb(0, 150, 75);
+      font-weight: bold;
+      padding-block: 0.5rem;
+      border-block: 1px solid black;
+      font-size: 1.5rem;
+      &_title {
+        display: block;
+        margin-bottom: 0.2rem;
+        color: black;
+      }
+    }
+    &--roaster {
+      font-size: 1.2rem;
+      padding-block: 0.5rem;
+      &_title {
+        color: rgb(46, 1, 104);
+        font-weight: 500;
+      }
+    }
+    &--origin {
+      font-size: 1.2rem;
+      padding-block: .5rem;
+      &_title {
+        color: rgb(46, 1, 104);
+
+        font-weight: 500;
+      display: block;
+      margin-bottom: 0.3rem;
+      }
+    }
+    &--score {
+      font-size: 1.2rem;
+      &_title {
+        color: rgb(46, 1, 104);
+
+        font-weight: 500;
+      }
+    }
+    &--price {
+      padding-block: 1rem;
+      font-size: 1.5rem;
+      &_title {
+      }
+     
+    }
+    &--link {
+      align-self: center;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      & a {
+        transition: all 0.4s ease;
+        text-decoration: none;
+        color: rgb(63, 158, 0);
+        font-weight: bold;
+        text-shadow: 1px 1px white;
+        &:hover {
+          color: rgb(255, 166, 0);
+          text-shadow: -55px 0px rgb(7, 7, 7);
+        }
+      }
+    }
+    @include tablet {
+      align-items: center;
+      &--name {
+        font-size: 1rem;
+        width: 30%;
+        padding-block: 0;
+        border-block: 0;
+        &_title {
+          display: none;
+        }
+      }
+      &--roaster {
+        width: 20%;
+        &_title {
+          display: none;
+        }
+      }
+      &--origin {
+        padding-block: 0;
+        width: 15%;
+        &_title {
+          display: none;
+        }
+      }
+      &--score {
+        width: 10%;
+        padding-block: 0;
+        text-align: center;
+        &_title {
+          display: none;
+        }
+      }
+      &--price {
+        padding-block: 0;
+        width: 10%;
+        text-align: center;
+        &_title {
+          display: none;
+        }
+      }
+      &--link {
+        width: 15%;
+        text-align: right;
+        &_title {
+          display: none;
+        }
+      }
+    }
+
+
+    &:hover {
+      border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+      box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+    }
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+}

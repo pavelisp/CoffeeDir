@@ -1,5 +1,13 @@
 @use '../../styles/partials/mixins' as *;
 
+.logo-rotate {
+  transform: rotate3d(1, 0, 0, 1turn);
+}
+
+.logo-link {
+  transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 .Header {
   padding-block: 2rem;
   display: flex;
@@ -16,11 +24,39 @@
     margin-inline: auto;
     width: 1280px;
   }
+  &__logo {
+    animation: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s 1 slideInFromLeft;
+    width: 100%;
+    transition: transform 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    
+    &:hover {
+      transform: scale(1);
+    }
+    @include tablet {
+      width: 150px;
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
+
   &__nav {
+    animation: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s 1 slideInFromRight;
+    width: calc(100vw - 2rem);
     display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+    @include tablet {
+      width: auto;
+      margin-top: 0;
+    }
   }
   &__nav-link {
+    width: 100%;
     text-decoration: none;
-    margin-left: 1rem;
+    @include tablet {
+      margin-left: 1rem;
+      width: fit-content;
+    }
   }
 }

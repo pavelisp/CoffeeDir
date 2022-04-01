@@ -1,1 +1,10 @@
 @use "./partials/global" as *;
+
+.imageAttribution {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
