@@ -125,7 +125,7 @@ class App extends Component {
         <Header handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/> 
         <Routes>
 
-            <Route path="/" exact element={<Home coffees={this.state.coffees}/>} />
+            <Route path="/" exact element={<Home user={this.state.user} coffees={this.state.coffees}/>} />
             <Route path="/login" element={<Login setLogin={this.setLogin}/>} />
             <Route path="/register" element={<Register />} />  
             <Route path="/add-coffee" element={<AddCoffee handleAddCoffee={this.handleAddCoffee} userId={this.state.user && this.state.user.id}/>} />   

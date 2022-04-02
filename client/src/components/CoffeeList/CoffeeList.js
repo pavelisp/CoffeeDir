@@ -1,12 +1,24 @@
 import "./CoffeeList.scss";
 import { Link } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 
 const CoffeeList = (props) => {
+  const [coffees, setCoffees] = useState([]);
+  const [filtered, setFiltered] = useState(false);
+
+  const filterCoffees = () => {
+    setFiltered(!filtered);
+    filtered ? setCoffees(props.coffees) : setCoffees(props.coffees.filter((coffee) => coffee.user_id === props.user.id));
+  }
+
+  useEffect(() => {
+    setCoffees(props.coffees);
+  }, [props.coffees]);
+
   return (
     <ul className="CoffeeList">
       <div className="CoffeeList__user-coffees">
-        Show My Coffees
+        {props.user && <div onClick={filterCoffees} className="CoffeeList__toggle">{!filtered ? `My Coffees`: `All Coffees`}</div>}
       </div>
       <header className="CoffeeList__header">
         <span className="CoffeeList__header-name">Name</span>
@@ -16,8 +28,8 @@ const CoffeeList = (props) => {
         <span className="CoffeeList__header-price">Price</span>
         <span className="CoffeeList__header-link">Link</span>
       </header>
-      {props.coffees &&
-        props.coffees.map((coffee) => {
+      {coffees &&
+        coffees.map((coffee) => {
           
           const { _id, name: coffeeName, roaster, origin, price, link, score } = coffee;
 

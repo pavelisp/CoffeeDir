@@ -4,7 +4,7 @@ import './Home.scss';
 const Home = (props) => {
   return ( 
     <main className="Main">
-      <CoffeeList coffees={props.coffees} />
+      <CoffeeList user={props.user} coffees={props.coffees} />
     </main>
    );
 }
