@@ -11,6 +11,8 @@ import AddCoffee from './pages/AddCoffee';
 import Coffee from './pages/Coffee';
 import EditCoffee from './pages/EditCoffee';
 import Wrapper from './components/Wrapper/Wrapper';
+import Footer from './components/Footer/Footer';
+import About from './pages/About/About';
 
 class App extends Component {
   state= {
@@ -121,18 +123,20 @@ class App extends Component {
   render (){
     return (
       <Router>
-                  <Wrapper>
-        <Header handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/> 
-        <Routes>
+        <Wrapper>
+          <Header handleLogout={this.handleLogout} loggedIn={this.state.loggedIn}/> 
+          <Routes>
 
-            <Route path="/" exact element={<Home user={this.state.user} coffees={this.state.coffees}/>} />
-            <Route path="/login" element={<Login setLogin={this.setLogin}/>} />
-            <Route path="/register" element={<Register />} />  
-            <Route path="/add-coffee" element={<AddCoffee handleAddCoffee={this.handleAddCoffee} userId={this.state.user && this.state.user.id}/>} />   
-            <Route path="/coffee/:id/edit" element={<EditCoffee getCoffees={this.getCoffees}/>} />
-            <Route path="/coffee/:id" element={<Coffee user={this.state.user} loggedIn={this.state.loggedIn}/>} />            
-        
-        </Routes>
+              <Route path="/" exact element={<Home user={this.state.user} coffees={this.state.coffees}/>} />
+              <Route path="/login" element={<Login setLogin={this.setLogin}/>} />
+              <Route path="/register" element={<Register />} />  
+              <Route path="/about" element={<About />} />
+              <Route path="/add-coffee" element={<AddCoffee handleAddCoffee={this.handleAddCoffee} userId={this.state.user && this.state.user.id}/>} />   
+              <Route path="/coffee/:id/edit" element={<EditCoffee getCoffees={this.getCoffees}/>} />
+              <Route path="/coffee/:id" element={<Coffee user={this.state.user} loggedIn={this.state.loggedIn}/>} />            
+          
+          </Routes>
+          <Footer />
         </Wrapper>
       </Router>
     );

@@ -1,0 +1,87 @@
+@use '../../styles/partials/mixins' as *;
+
+.About {
+  padding: 2rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+  color: black;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: slideInFromLeft .3s ease-in 1 both;
+  @include tablet {
+    flex-direction: row;
+    gap: 3rem;
+    justify-content: space-between;
+  }
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  &__text {
+    max-width: 55ch;
+    line-height: 1.5;
+  }
+  &__image-credit {
+    margin-block: 1rem;
+  }
+  &__image-title {
+    font-size: 1.5rem;
+    margin-block: 0.5rem;
+  }
+  &__image-link {
+    display: block;
+    color: orangered;
+    text-decoration: none;
+    border-bottom: 1px solid orangered;
+    font-size: 0.9rem;
+    margin-block: 0.5rem;
+    transition: padding-bottom 0.4s ease;
+    &:hover {
+      padding-bottom: 0.3rem;
+    }
+  }
+  &__author {
+    font-size: 1.5rem;
+    margin-block: 0.5rem;
+  }
+  &__author-link {
+    color: orangered;
+    text-decoration: none;
+    border-bottom: 1px solid orangered;
+    margin-block: 0.5rem;
+    transition: padding-bottom 0.4s ease;
+    &:hover {
+      padding-bottom: 0.3rem;
+    }
+  }
+  &__author-text {
+    line-height: 1.5;
+  }
+  &__author-image {
+    display: block;
+    width: 30%;
+    border-radius: 50%;
+    margin-block: 0.5rem;
+    transition: all 0.4s ease;
+    border: 10px inset transparent;
+    &:hover {
+      transform: rotate(360deg);
+      border: 10px inset orangered;
+    }
+  }
+  &__back {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    color: black;
+    font-size: 2rem;
+    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    &:hover {
+      transform: translateX(-5px);
+      letter-spacing: 1px;
+    }
+  }
+}

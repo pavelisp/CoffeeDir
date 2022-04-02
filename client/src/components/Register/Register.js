@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Input from "../Input/Input";
 import { Navigate } from 'react-router-dom';
+import './Register.scss';
 
 import axios from "axios";
 
@@ -36,13 +37,13 @@ class Register extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className='Register' onSubmit={this.handleSubmit}>
         { this.state.success && <Navigate replace to='/login' /> }
         { this.state.error }
         <Input type="text" name="username" label="Username" />
         <Input type="text" name="email" label="Email" />
         <Input type="password" name="password" label="Password" />
-        <button>REGISTER</button>
+        <button className="Register__button">REGISTER</button>
       </form>
     );
   }

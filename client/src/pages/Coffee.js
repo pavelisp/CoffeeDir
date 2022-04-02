@@ -49,7 +49,7 @@ const Coffee = (props) => {
             <p className="Coffee__description">
               Description: {coffee.description}
             </p>
-            <ul className="Coffee__flavours">Flavours: {coffee.flavours && coffee.flavours.map((flavour, i) => <li className="Coffee__flavour" key={i}>{flavour}</li>)}</ul>
+            <div className="Coffee__flavours"><span className="Coffee__flavours-title">Flavours:</span> <ul>{coffee.flavours && coffee.flavours.map((flavour, i) => <li className="Coffee__flavour" key={i}>{flavour}</li>)}</ul></div>
           </div>
         </div>
         <div className='Coffee__footer'>

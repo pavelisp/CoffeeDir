@@ -50,7 +50,7 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
-    @include tablet {
+    @include desktop {
       flex-direction: row;
       justify-content: flex-start;
     }
@@ -95,6 +95,7 @@
     margin-bottom: 1rem;
   }
   &__description {
+    line-height: 1.5;
     font-size: 1rem;
     color: rgba(0, 0, 0, 0.6);
     margin-bottom: 1rem;
@@ -104,7 +105,9 @@
     font-weight: bold;
     color: rgba(0, 0, 0, 0.6);
     margin-bottom: 1rem;
-
+  }
+  &__flavours-title {
+    display: block;
   }
   &__flavour {
     &:first-child {
@@ -145,6 +148,32 @@
     &:hover {
       background-color: orangered;
       color: white;
+    }
+  }
+  &--left {
+    @include tablet {
+      display: flex;
+    width: 60%;
+      justify-content: space-between;
+    }
+  }
+  &--right {
+    @include desktop {
+      display: flex;
+      width: 50%;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+  }
+  @include tablet {
+    &__flavours {
+
+    }
+    &__info {
+      background-image: url('');
+    }
+    &__footer {
+      width: 100%;
     }
   }
 }

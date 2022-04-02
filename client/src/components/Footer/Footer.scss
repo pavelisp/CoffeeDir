@@ -1,0 +1,28 @@
+.Footer {
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  margin-top: 5rem;
+  background-color: rgba(255, 69, 0, 0.4);
+  align-items: center;
+  &__copyright {
+    color: white;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+  &__about {
+    opacity: 0.5;
+    text-decoration: none;
+    padding: 0.3rem 0.5rem;
+    background: white;
+    color: orangered;
+    font-size: 0.8rem;
+    font-style: italic;
+    transition: all 0.4s ease;
+    &:hover {
+      opacity: 1;
+      background: orangered;
+      color: white;
+    }
+  }
+}

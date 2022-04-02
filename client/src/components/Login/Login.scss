@@ -3,7 +3,7 @@
 .Login {
   display: flex;
   flex-direction: column;
-  animation: slideInFromLeft 1s ease-in-out 1 both;
+  animation: slideInFromLeft .2s ease-in-out 1 both;
   padding: 2rem 1rem;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
