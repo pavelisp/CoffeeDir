@@ -34,7 +34,7 @@ class App extends Component {
       origin: e.target.origin.value,
       farm: e.target.farm.value,
       description: e.target.description.value,
-      flavours: e.target.flavours.value,
+      flavours: e.target.flavours.value.split(','),
       price: e.target.price.value,
       link: e.target.link.value,
       score: e.target.score.value,
@@ -133,7 +133,6 @@ class App extends Component {
             <Route path="/coffee/:id" element={<Coffee user={this.state.user} loggedIn={this.state.loggedIn}/>} />            
         
         </Routes>
-        <a href="https://www.freepik.com/vectors/coffee-branch">Coffee branch vector created by rattanachomphoo - www.freepik.com</a>
         </Wrapper>
       </Router>
     );

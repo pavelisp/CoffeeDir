@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 const CoffeeList = (props) => {
   return (
     <ul className="CoffeeList">
+      <div className="CoffeeList__user-coffees">
+        Show My Coffees
+      </div>
       <header className="CoffeeList__header">
         <span className="CoffeeList__header-name">Name</span>
         <span className="CoffeeList__header-roaster">Roaster</span>
@@ -25,7 +28,7 @@ const CoffeeList = (props) => {
                 <span className="CoffeeList__item--roaster"><span className="CoffeeList__item--roaster_title">Roaster: </span> {roaster}</span> 
                 <span className="CoffeeList__item--origin"><span className="CoffeeList__item--origin_title">Origin: </span> {origin}</span>
                 <span className="CoffeeList__item--score"><span className="CoffeeList__item--score_title">Score: </span> {score}</span>
-                <span className="CoffeeList__item--price"><span className="CoffeeList__item--price_title">Price: </span> {price}</span>
+                <span className="CoffeeList__item--price"><span className="CoffeeList__item--price_title">Price: </span>${price}</span>
                 <span className="CoffeeList__item--link"><a href={link} target='_blank' rel='noreferrer'>Buy</a></span>
               </li>
         )}

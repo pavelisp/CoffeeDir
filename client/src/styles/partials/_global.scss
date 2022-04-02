@@ -142,13 +142,15 @@ table {
 // Global styles
 
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,700;1,600&display=swap');
 
 body {
   overflow-x: hidden;
   font-size: 1.1rem;
   color: white;
   background: #E9897E;
-  font-family: 'EB Garamond', serif;
+  font-family: 'Nunito', sans-serif;
+  // font-family: 'EB Garamond', serif;
   font-weight: 400;
   background-image: url('../../assets/background-coffee-element.svg'),  linear-gradient(#eb01a5, #d13531);;
   background-size: cover;

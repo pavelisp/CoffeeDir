@@ -2,6 +2,8 @@ import axios from "axios";
 import { Component } from "react";
 import { Navigate } from "react-router-dom";
 import Input from "../Input/Input";
+import Wrapper from "../Wrapper/Wrapper";
+import './Login.scss';
 
 class Login extends Component {
 
@@ -31,13 +33,19 @@ class Login extends Component {
   }
 
   render(){
-    return ( <form onSubmit={this.handleSubmit}>
+    return ( 
+    <Wrapper>
+      <form className="Login" onSubmit={this.handleSubmit}>
       {this.state.success && <Navigate to="/" />}
       {this.state.error}
-      <Input type="text" name="email" label="Email" />
-      <Input type="password" name="password" label="Password" />
-      <button>LOGIN</button>
-    </form> );
+      <div className="Login__wrapper">
+        <Input type="text" name="email" label="Email" />
+        <Input type="password" name="password" label="Password" />
+      </div>
+
+      <button className="Login__button">LOGIN</button>
+    </form>
+      </Wrapper> );
   }
 }
  

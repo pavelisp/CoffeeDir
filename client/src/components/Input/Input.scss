@@ -12,5 +12,9 @@
     border-radius: 0.5rem;
     padding: 0.5rem;
     font-size: inherit;
+    &:focus {
+      outline: 2px solid orangered;
+    }
   }
+  
 }

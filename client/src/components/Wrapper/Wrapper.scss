@@ -1,1 +1,12 @@
 @use '../../styles/partials/mixins' as *;
+
+.Wrapper {
+  margin-inline: 1rem;
+  @include tablet {
+    margin-inline: 2rem;
+  }
+  @include desktop {
+    width: 1280px;
+    margin-inline: auto;
+  }
+}
