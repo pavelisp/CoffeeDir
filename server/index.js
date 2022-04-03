@@ -1,3 +1,4 @@
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 const express = require('express');
 const app = express();
 require('./config/database').connect();
@@ -10,7 +11,6 @@ const coffeeRoutes = require('./routes/coffees');
 
 // Environmental variables
 
-require('dotenv').config();
 const PORT = process.env.PORT || 8080;
 
 // Middleware
