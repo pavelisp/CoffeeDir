@@ -1,0 +1,29 @@
+{
+  "name": "gh",
+  "version": "1.0.0",
+  "description": "_CoffeeDir_ - application to keep track of your bean collection 🤔",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "npm start --prefix server",
+    "setup:dev": "cd client && npm i && cd ../server && npm i",
+    "server": "cd server && npm run server",
+    "server:dev": "cd server && nodemon index.js",
+    "client": "cd client && npm run start",
+    "dev": "concurrently --kill-others \"npm run server:dev\" \"npm run client\"",
+    "heroku-postbuild": "npm install --prefix client && npm install --prefix server && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavelisp/CoffeeDir.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavelisp/CoffeeDir/issues"
+  },
+  "homepage": "https://github.com/pavelisp/CoffeeDir#readme",
+  "dependencies": {
+    "concurrently": "^7.1.0"
+  }
+}

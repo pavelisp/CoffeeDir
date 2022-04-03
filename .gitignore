@@ -3,6 +3,7 @@
 # dependencies
 /client/node_modules
 /server/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
@@ -25,3 +26,4 @@ yarn-error.log*
 
 # ENV VAULT
 server/.env
+node_modules

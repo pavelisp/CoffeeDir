@@ -15,7 +15,7 @@ const Coffee = (props) => {
 
   const getCoffee = () => {
     axios
-      .get(`http://localhost:8080/coffee/${id}`)
+      .get(`/coffee/${id}`)
       .then((res) => {
         setCoffee(res.data);
       })

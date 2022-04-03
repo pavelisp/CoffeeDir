@@ -30,7 +30,7 @@ class App extends Component {
   handleAddCoffee = (e, navigate) => {
     e.preventDefault();
 
-    axios.post(`http://localhost:8080/coffee/${this.state.user.id}`, {
+    axios.post(`/coffee/${this.state.user.id}`, {
       name: e.target.name.value,
       roaster: e.target.roaster.value,
       origin: e.target.origin.value,
@@ -50,7 +50,7 @@ class App extends Component {
 
   getCoffees = () => {
     axios
-    .get('http://localhost:8080/coffee')
+    .get('/coffee')
     .then(res=> {
       this.setState({coffees: res.data})
     })
@@ -68,7 +68,7 @@ class App extends Component {
     }
 
     axios
-    .get('http://localhost:8080/current', {
+    .get('/current', {
       headers: {Authorization: `Bearer ${token}`}
     })
     .then(res=> {
@@ -108,7 +108,7 @@ class App extends Component {
       }
   
       axios
-        .get('http://localhost:8080/current', {
+        .get('/current', {
           headers: {Authorization: `Bearer ${token}`}
         })
         .then(res=> {
