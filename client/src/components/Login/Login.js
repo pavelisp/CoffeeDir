@@ -18,7 +18,7 @@ class Login extends Component {
     const {email: {value: email}, password: {value: password}} = e.target;
 
     axios
-      .post('http://localhost:8080/user/login', {
+      .post('/user/login', {
         email,
         password
       })

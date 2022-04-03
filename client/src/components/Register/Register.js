@@ -21,7 +21,7 @@ class Register extends Component {
     } = e.target;
     console.log(username, email,password)
     // send a post request to server to register user
-    axios.post(`http://localhost:8080/user/register`, {
+    axios.post(`/user/register`, {
       username,
       email,
       password,

@@ -15,7 +15,7 @@ const EditCoffee = (props) => {
 
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:8080/coffee/${id}`)
+      .delete(`/coffee/${id}`)
       .then((res) => {
         props.getCoffees();
         navigate("/");  
@@ -29,7 +29,7 @@ const EditCoffee = (props) => {
     e.preventDefault();
 
     axios
-      .put(`http://localhost:8080/coffee/${id}`, {
+      .put(`/coffee/${id}`, {
         name: e.target.name.value,
         roaster: e.target.roaster.value,
         origin: e.target.origin.value,
@@ -53,7 +53,7 @@ const EditCoffee = (props) => {
 
   const getCoffee = () => {
     axios
-      .get(`http://localhost:8080/coffee/${id}`)
+      .get(`/coffee/${id}`)
       .then((res) => {
         setCoffee(res.data);
       })

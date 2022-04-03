@@ -3,7 +3,7 @@ import Wrapper from "../../components/Wrapper/Wrapper";
 import portrait from '../../assets/pavel_ispravnikov_portrait.jpg';
 import './About.scss';
 
-const About = (props) => {
+const About = () => {
   
   return ( 
     <Wrapper>
@@ -13,7 +13,6 @@ const About = (props) => {
         <h1 className="About__title">About</h1>
         <p className="About__text">
           This is a simple app that allows you to create and save your own coffees.
-          You can also search for coffees by name, roaster, origin, score, price, and link.
           You can also filter your coffees by your own account.
         </p>
         <div className="About__image-credit">
