@@ -4,6 +4,7 @@ const app = express();
 require('./config/database').connect();
 const morgan = require('morgan');
 const cors = require('cors');
+const path = require('path');
 
 const userRoutes = require('./routes/users');
 const currentUser = require('./routes/current');
