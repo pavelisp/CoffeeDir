@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "./Coffee.scss";
+import "./Coffee.scss"; 
 
 const Coffee = (props) => {
   const navigate = useNavigate();
